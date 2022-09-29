@@ -1,41 +1,38 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getRequestTrendingMovies } from 'utils/SerchMoviesAPI';
+import { Img, Item, List } from './CardSearchMovies.styled';
 
-const Home = () => {
-  const [trendingMovies, setTrendingMovis] = useState([]);
-  useEffect(() => {
-    getRequestTrendingMovies().then(data => setTrendingMovis(data.results));
-  }, []);
+const CardSearchMovies = ({ movies }) => {
+//   console.log(movies);
   return (
-    <ul>
-      {trendingMovies.map(
+    <List>
+      {movies.map(
         ({
+          id,
           poster_path,
           title,
-          id,
-          release_date,
           original_title,
+          release_date,
           vote_average,
         }) => {
           return (
-            <li key={id}>
+            <Item key={id}>
               <Link to={`/movies/${id}`}>
-                <img
+                <Img
                   src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
                   alt={original_title}
+                  // target="_blank"
+                  // rel="noreferrer"
                 />
                 <p>{title}</p>
                 <p>{release_date}</p>
                 <p>{(vote_average).toFixed(1)}</p>
               </Link>
-            </li>
+            </Item>
           );
         }
       )}
-    </ul>
+    </List>
   );
 };
 
-export default Home;
+export default CardSearchMovies;

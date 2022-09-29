@@ -7,9 +7,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(179,198,196,1) 100%, rgba(29,22,22,0) 100%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+  margin: 0;
 }
