@@ -12,8 +12,6 @@ export const getRequestSearchMovies = async (query, page) => {
         api_key: API_KEY,
       },
     });
-    // console.log(data);
-    // console.log(page);
     return data;
   } catch (error) {
     console.log(error);
@@ -26,7 +24,7 @@ export const getRequestTrendingMovies = async () => {
     const { data } = await axios.get('/trending/movie/week', {
       params: {
         api_key: API_KEY,
-        page: 1,
+        page:1,
       },
     });
     // console.log(data);

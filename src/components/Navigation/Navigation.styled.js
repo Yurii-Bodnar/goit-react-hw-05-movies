@@ -13,7 +13,7 @@ export const Header = styled.header`
   gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
-  border-bottom: 1px solid black;
+
   
 
   > nav {
@@ -28,7 +28,9 @@ export const Link = styled(NavLink)`
   font-weight: 500;
 
   &.active {
-    color: white;
-    background-color: steelblue;
+    color: orange;
+    border: 1px solid black;
+    box-shadow: 1px 1px 11px;
+    /* background-color: steelblue; */
   }
 `;

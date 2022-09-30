@@ -7,20 +7,16 @@ import actorPlaceholder from './../../images/No_Image_Available.jpg'
 
 const Cast = () => {
   const [casts, setCast] = useState([]);
-  // console.log(movieId);
+
   const { movieId } = useParams();
-//   console.log(movieId);
+
 
   useEffect(() => {
     getRequestMoviesCast(movieId).then(({ cast }) => setCast(cast));
   }, [movieId]);
-  // console.log(casts.cast.map(cast => cast.profile_path));
-  //   console.log(casts);
 
-  // if (casts.length !== 0) return;
   return (
     <div>
-      {/* <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink> */}
       <ul>
         {casts.map(cast => {
           return (

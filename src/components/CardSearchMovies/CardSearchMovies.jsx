@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom';
-import { Img, Item, List } from './CardSearchMovies.styled';
+import {  useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Img, Item, List,Link } from './CardSearchMovies.styled';
+
+
 
 const CardSearchMovies = ({ movies }) => {
-//   console.log(movies);
+    const location = useLocation()
   return (
     <List>
       {movies.map(
@@ -16,12 +19,10 @@ const CardSearchMovies = ({ movies }) => {
         }) => {
           return (
             <Item key={id}>
-              <Link to={`/movies/${id}`}>
+              <Link to={`/movies/${id}`} state={location}>
                 <Img
                   src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
                   alt={original_title}
-                  // target="_blank"
-                  // rel="noreferrer"
                 />
                 <p>{title}</p>
                 <p>{release_date}</p>
@@ -35,4 +36,10 @@ const CardSearchMovies = ({ movies }) => {
   );
 };
 
+CardSearchMovies.propTypes = {
+    movies:PropTypes.arrayOf(PropTypes.object)
+}
+
 export default CardSearchMovies;
+
+
